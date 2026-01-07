@@ -145,7 +145,7 @@ section {
     font-style: italic;
     font-weight: 300;
     color: var(--stone);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
 }
 
 .hero-description {
