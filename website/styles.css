@@ -50,6 +50,85 @@
     --radius-xl: 24px;
 }
 
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays for children */
+.animate-on-scroll:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.animate-on-scroll:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.animate-on-scroll:nth-child(3) {
+    transition-delay: 200ms;
+}
+
+.animate-on-scroll:nth-child(4) {
+    transition-delay: 300ms;
+}
+
+/* Hero Entrance Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px) rotate(6deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(60px) rotate(6deg);
+    }
+}
+
+.hero-title {
+    animation: fadeInUp 0.8s var(--ease-out) both;
+    animation-delay: 0.1s;
+}
+
+.dictionary-entry {
+    animation: fadeInUp 0.8s var(--ease-out) both;
+    animation-delay: 0.25s;
+}
+
+.hero-content .cta-button {
+    animation: fadeInUp 0.8s var(--ease-out) both;
+    animation-delay: 0.4s;
+}
+
+.extension-preview {
+    animation: fadeInUp 0.9s var(--ease-out) both;
+    animation-delay: 0.3s;
+}
+
+.card-preview-mockup {
+    animation: slideInFromRight 0.9s var(--ease-out) both;
+    animation-delay: 0.5s;
+}
+
 /* Reset & Base */
 *,
 *::before,
@@ -744,7 +823,7 @@ section {
 .card-modal {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+    background: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -753,8 +832,6 @@ section {
     visibility: hidden;
     transition: opacity var(--transition-base) var(--ease-out),
         visibility var(--transition-base) var(--ease-out);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
 }
 
 .card-modal.active {
@@ -787,10 +864,10 @@ section {
     right: 0;
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--pearl);
     border: none;
     border-radius: 50%;
-    color: white;
+    color: var(--charcoal);
     font-size: 1.5rem;
     cursor: pointer;
     display: flex;
@@ -800,7 +877,7 @@ section {
 }
 
 .card-modal-close:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--ash);
 }
 
 /* Extension Preview Mockup */
@@ -1209,242 +1286,207 @@ section {
 }
 
 /* ========================================
-   Tutorial Section
+   Editorial Section - Magazine Style
    ======================================== */
 
-.tutorial {
+.editorial {
     padding: var(--space-4xl) var(--space-lg);
-    background: var(--ivory);
+    background: var(--white);
     max-width: 100%;
 }
 
-.tutorial-header {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto var(--space-3xl);
+/* Large Statement */
+.editorial-statement {
+    max-width: 900px;
+    margin: 0 auto var(--space-4xl);
+    text-align: left;
 }
 
-.tutorial-label {
-    display: inline-block;
+.statement-text {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--charcoal);
+    letter-spacing: -0.01em;
+}
+
+.statement-text em {
+    font-style: italic;
+    color: var(--black);
+}
+
+/* Methods - Asymmetric Two Column */
+.editorial-methods {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-3xl);
+    max-width: 900px;
+    margin: 0 auto var(--space-4xl);
+    align-items: start;
+}
+
+.methods-label {
+    position: sticky;
+    top: var(--space-xl);
+}
+
+.label-text {
     font-family: var(--font-sans);
     font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--silver);
-    margin-bottom: var(--space-md);
 }
 
-.tutorial-title {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: var(--black);
-    margin-bottom: var(--space-md);
-    line-height: 1.2;
+.methods-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
 }
 
-.tutorial-subtitle {
-    font-family: var(--font-serif);
-    font-size: 1.125rem;
-    font-style: italic;
-    color: var(--stone);
-    line-height: 1.6;
-}
-
-/* Tutorial Grid */
-.tutorial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.method-item {
+    display: flex;
+    align-items: flex-start;
     gap: var(--space-lg);
-    max-width: 960px;
-    margin: 0 auto;
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--pearl);
 }
 
-.tutorial-card {
-    background: var(--white);
-    border: 1px solid var(--pearl);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl) var(--space-lg);
-    text-align: center;
-    transition: all var(--transition-base) var(--ease-out);
-    position: relative;
+.method-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
-.tutorial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--ash);
-}
-
-.tutorial-step {
-    display: block;
+.method-number {
     font-family: var(--font-serif);
     font-size: 0.875rem;
-    font-weight: 400;
     color: var(--silver);
-    margin-bottom: var(--space-md);
-    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    padding-top: 4px;
 }
 
-.tutorial-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    margin: 0 auto var(--space-lg);
-    background: var(--ivory);
-    border-radius: var(--radius-md);
-    color: var(--charcoal);
-    transition: all var(--transition-base) var(--ease-out);
+.method-content {
+    flex: 1;
 }
 
-.tutorial-card:hover .tutorial-icon {
-    background: var(--pearl);
-    transform: scale(1.05);
-}
-
-.tutorial-icon--pinterest {
-    color: var(--charcoal);
-}
-
-.tutorial-card-title {
+.method-title {
     font-family: var(--font-serif);
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: var(--black);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.01em;
 }
 
-.tutorial-card-desc {
+.method-desc {
     font-family: var(--font-sans);
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: var(--slate);
     line-height: 1.6;
 }
 
-/* Tutorial Results */
-.tutorial-results {
-    margin-top: var(--space-4xl);
+/* Discover - Editorial Grid */
+.editorial-discover {
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    padding-top: var(--space-3xl);
+    border-top: 1px solid var(--pearl);
 }
 
-.tutorial-results-title {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--black);
-    text-align: center;
+.discover-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--silver);
     margin-bottom: var(--space-xl);
 }
 
-.tutorial-results-grid {
+.discover-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
+    gap: var(--space-xl) var(--space-3xl);
 }
 
-.tutorial-result-item {
+.discover-item {
     display: flex;
-    align-items: flex-start;
-    gap: var(--space-md);
-    padding: var(--space-lg);
-    background: var(--white);
-    border: 1px solid var(--pearl);
-    border-radius: var(--radius-md);
-    transition: all var(--transition-base) var(--ease-out);
+    flex-direction: column;
+    gap: var(--space-xs);
 }
 
-.tutorial-result-item:hover {
-    border-color: var(--ash);
-    box-shadow: var(--shadow-sm);
-}
-
-.result-icon {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: var(--ivory);
-    border-radius: var(--radius-sm);
-    color: var(--graphite);
-}
-
-.result-content h4 {
+.discover-title {
     font-family: var(--font-serif);
-    font-size: 1.0625rem;
+    font-size: 1.375rem;
     font-weight: 500;
     color: var(--black);
-    margin-bottom: var(--space-xs);
+    letter-spacing: -0.01em;
 }
 
-.result-content p {
+.discover-desc {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--stone);
     line-height: 1.5;
 }
 
-/* Tutorial Responsive */
-@media (max-width: 1024px) {
-    .tutorial-grid {
-        gap: var(--space-md);
-    }
-
-    .tutorial-card {
-        padding: var(--space-lg);
-    }
-
-    .tutorial-icon {
-        width: 56px;
-        height: 56px;
-    }
-
-    .tutorial-icon svg {
-        width: 28px;
-        height: 28px;
-    }
-}
-
+/* Editorial Responsive */
 @media (max-width: 768px) {
-    .tutorial {
+    .editorial {
         padding: var(--space-3xl) var(--space-md);
     }
 
-    .tutorial-title {
-        font-size: 2rem;
+    .statement-text {
+        font-size: 1.625rem;
+        line-height: 1.5;
     }
 
-    .tutorial-grid {
+    .editorial-methods {
         grid-template-columns: 1fr;
-        max-width: 400px;
+        gap: var(--space-lg);
     }
 
-    .tutorial-results-grid {
+    .methods-label {
+        position: static;
+    }
+
+    .method-title {
+        font-size: 1.25rem;
+    }
+
+    .method-desc {
+        font-size: 0.9375rem;
+    }
+
+    .discover-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-lg);
     }
 
-    .tutorial-results {
-        margin-top: var(--space-3xl);
+    .discover-title {
+        font-size: 1.25rem;
     }
 }
 
 @media (max-width: 480px) {
-    .tutorial-title {
-        font-size: 1.75rem;
+    .statement-text {
+        font-size: 1.375rem;
     }
 
-    .tutorial-subtitle {
-        font-size: 1rem;
+    .method-item {
+        flex-direction: column;
+        gap: var(--space-sm);
     }
 
-    .tutorial-card-title {
-        font-size: 1.25rem;
+    .discover-title {
+        font-size: 1.125rem;
+    }
+
+    .discover-desc {
+        font-size: 0.875rem;
     }
 }
 
