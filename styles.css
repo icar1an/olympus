@@ -1177,8 +1177,8 @@ body {
 .shareable-card-export-wrapper {
   background: #F5F5F0;
   /* Off-white / warm gray background */
-  width: 1080px;
-  height: 1920px;
+  width: 540px;
+  height: 960px;
   display: flex;
   align-items: center;
   justify-content: center;

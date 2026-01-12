@@ -1,6 +1,6 @@
 # Privacy Policy for Prometheus
 
-**Last Updated: January 11, 2026**
+**Last Updated: January 12, 2026**
 
 ## Overview
 

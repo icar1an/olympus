@@ -41,9 +41,7 @@
                 </div>
                 <div class="dict-definition">
                     <span class="dict-number">2.</span>
-                    <p>A Chrome extension that extracts aesthetics from your Pinterest boards or any image, and surfaces
-                        historical runway shows that capture a feeling you can curate but can't fully
-                        describe.</p>
+                    <p>A Chrome extension that captures a feeling you can curate but can't describe.</p>
                 </div>
             </div>
 
@@ -101,7 +99,7 @@
                             <span class="ext-section-link">View all →</span>
                         </div>
                         <div class="ext-recent-list">
-                            <div class="ext-recent-item">
+                            <div class="ext-recent-item" onclick="openCardModal()" style="cursor: pointer;">
                                 <img class="ext-recent-thumb" src="icons/liquid-chrome.png" alt="Liquid Chrome">
                                 <div class="ext-recent-info">
                                     <span class="ext-recent-name">Liquid Chrome</span>
@@ -147,6 +145,70 @@
         </div>
     </section>
 
+    <!-- Editorial Section -->
+    <section class="editorial" id="how-to-use">
+        <!-- Large Statement -->
+        <div class="editorial-statement animate-on-scroll">
+            <p class="statement-text">
+                Prometheus surfaces the runway shows behind any look—giving you <em>the vocabulary</em> to describe what
+                you're drawn to, and <em>the references</em> to find more of it.
+            </p>
+        </div>
+
+        <!-- How It Works - Asymmetric Layout -->
+        <div class="editorial-methods">
+            <div class="methods-label">
+                <span class="label-text">Three ways to discover</span>
+            </div>
+            <div class="methods-list">
+                <div class="method-item animate-on-scroll">
+                    <span class="method-number">01</span>
+                    <div class="method-content">
+                        <h3 class="method-title">Capture</h3>
+                        <p class="method-desc">Right-click any image online and select "Analyze with Prometheus"</p>
+                    </div>
+                </div>
+                <div class="method-item animate-on-scroll">
+                    <span class="method-number">02</span>
+                    <div class="method-content">
+                        <h3 class="method-title">Upload</h3>
+                        <p class="method-desc">Select any image from your device</p>
+                    </div>
+                </div>
+                <div class="method-item animate-on-scroll">
+                    <span class="method-number">03</span>
+                    <div class="method-content">
+                        <h3 class="method-title">Pinterest</h3>
+                        <p class="method-desc">Connect your Pinterest to analyze your boards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What You Get - Editorial Grid -->
+        <div class="editorial-discover">
+            <span class="discover-label">What you'll receive</span>
+            <div class="discover-grid">
+                <div class="discover-item animate-on-scroll">
+                    <span class="discover-title">Aesthetic Name</span>
+                    <span class="discover-desc">A precise vocabulary for your style</span>
+                </div>
+                <div class="discover-item animate-on-scroll">
+                    <span class="discover-title">Core Garments</span>
+                    <span class="discover-desc">The key pieces that define the look</span>
+                </div>
+                <div class="discover-item animate-on-scroll">
+                    <span class="discover-title">Designer References</span>
+                    <span class="discover-desc">Runway shows that capture the same energy</span>
+                </div>
+                <div class="discover-item animate-on-scroll">
+                    <span class="discover-title">Shareable Card</span>
+                    <span class="discover-desc">A beautiful summary to save or share</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer footer-minimal">
         <div class="footer-content">
@@ -173,6 +235,24 @@
         }
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeCardModal();
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>

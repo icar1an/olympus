@@ -2,8 +2,7 @@
   "manifest_version": 3,
   "name": "Prometheus",
   "version": "1.0.1",
-  "description": "AI-powered fashion aesthetic analyzer for any image on the web",
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6nlSiD6v/uDHA8gJjO+3XDhk8UJT9LQYEC/TNTqY+dMItolTUnrIZHMApl2YHsC1J8ZRkO4aE6osBxymZgxrn8s8U7Y5aN/1N36y17NbfEpjVDlQ3G0Ve5mLsG1rhVXQIoaYlNbuhDSSEAMDVPi6Es3mwRGSNe7yGSFjldaQHr1OSzGLlsT786hJW/QsbTEkYURXkomHTSAQQL+z4vcT2qFWEH9tqNJqy/Y9mLBEOqikxk6AJKnibI9psC43k9SBVWm6VfuTOIRNtD9s5OJLPTYV87JYTBC0YhBwxOW/cvASQfkg4499gP3Wb1WPJn2LYXPgpFqMc4+RzEP8eVRAAQIDAQAB",
+  "description": "Capture a feeling you can curate but can't describe.",
   "permissions": [
     "activeTab",
     "storage",
