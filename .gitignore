@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# Except the docs folder (website assets)
+!docs/
+!docs/**
+
+# And the gitignore itself
+!.gitignore
