@@ -1,0 +1,72 @@
+{
+  "manifest_version": 3,
+  "name": "Prometheus",
+  "version": "1.0.1",
+  "description": "AI-powered fashion aesthetic analyzer for any image on the web",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6nlSiD6v/uDHA8gJjO+3XDhk8UJT9LQYEC/TNTqY+dMItolTUnrIZHMApl2YHsC1J8ZRkO4aE6osBxymZgxrn8s8U7Y5aN/1N36y17NbfEpjVDlQ3G0Ve5mLsG1rhVXQIoaYlNbuhDSSEAMDVPi6Es3mwRGSNe7yGSFjldaQHr1OSzGLlsT786hJW/QsbTEkYURXkomHTSAQQL+z4vcT2qFWEH9tqNJqy/Y9mLBEOqikxk6AJKnibI9psC43k9SBVWm6VfuTOIRNtD9s5OJLPTYV87JYTBC0YhBwxOW/cvASQfkg4499gP3Wb1WPJn2LYXPgpFqMc4+RzEP8eVRAAQIDAQAB",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "identity",
+    "contextMenus",
+    "alarms"
+  ],
+  "oauth2": {
+    "client_id": "707111034542-3kc32gau3kbb5rah01ri46jvdgjsha18.apps.googleusercontent.com",
+    "scopes": [
+      "openid",
+      "email",
+      "profile"
+    ]
+  },
+  "host_permissions": [
+    "https://*.googleapis.com/*",
+    "https://*.cloudfunctions.net/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content-styles.css"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*",
+        "icons/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

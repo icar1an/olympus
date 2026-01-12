@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Prometheus</title>
+    <meta name="description" content="Privacy Policy for the Prometheus Chrome extension.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon48.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Privacy Page Specific Styles */
+        .privacy-page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: var(--space-3xl) var(--space-lg);
+        }
+
+        .privacy-header {
+            margin-bottom: var(--space-3xl);
+            padding-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--pearl);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.875rem;
+            color: var(--stone);
+            margin-bottom: var(--space-lg);
+            transition: color var(--transition-fast) var(--ease-out);
+        }
+
+        .back-link:hover {
+            color: var(--black);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .privacy-title {
+            font-size: 2.5rem;
+            color: var(--black);
+            margin-bottom: var(--space-sm);
+        }
+
+        .privacy-updated {
+            font-size: 0.9375rem;
+            color: var(--stone);
+        }
+
+        .privacy-content h2 {
+            font-size: 1.5rem;
+            color: var(--black);
+            margin-top: var(--space-2xl);
+            margin-bottom: var(--space-md);
+        }
+
+        .privacy-content h3 {
+            font-size: 1.125rem;
+            color: var(--charcoal);
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-sm);
+        }
+
+        .privacy-content p {
+            margin-bottom: var(--space-md);
+            line-height: 1.75;
+        }
+
+        .privacy-content ul {
+            margin-bottom: var(--space-md);
+            padding-left: var(--space-lg);
+        }
+
+        .privacy-content li {
+            color: var(--slate);
+            margin-bottom: var(--space-sm);
+            line-height: 1.65;
+        }
+
+        .privacy-content strong {
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .privacy-content a {
+            color: var(--charcoal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .privacy-content a:hover {
+            color: var(--black);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="privacy-page">
+        <header class="privacy-header">
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to home
+            </a>
+            <h1 class="privacy-title">Privacy Policy</h1>
+            <p class="privacy-updated">Last updated: January 2026</p>
+        </header>
+
+        <div class="privacy-content">
+            <h2>Introduction</h2>
+            <p>
+                Prometheus ("we", "our", or "the extension") is a Chrome browser extension that ungatekeeps anything.
+                This Privacy Policy explains how we collect, use, and protect your information when you use our
+                extension.
+            </p>
+
+            <h2>Information We Collect</h2>
+
+            <h3>Images You Analyze</h3>
+            <p>
+                When you use Prometheus to analyze an image, the image data is sent to our servers for processing. We
+                use this data solely to provide you with analysis results.
+            </p>
+            <ul>
+                <li>Images are processed in real-time and are not permanently stored on our servers</li>
+                <li>Analysis results may be cached temporarily to improve performance</li>
+                <li>If you save an analysis to your collection, the results (not the original image) are stored in your
+                    account</li>
+            </ul>
+
+            <h3>Account Information</h3>
+            <p>
+                To prevent spam and fake users, account sign-in with Google is required. When you sign in, we collect:
+            </p>
+            <ul>
+                <li><strong>Email address</strong> — to identify your account</li>
+                <li><strong>Display name</strong> — to personalize your experience</li>
+                <li><strong>Profile photo</strong> — to display in the extension interface</li>
+            </ul>
+            <p>
+                Account sign-in is mandatory to prevent spam and ensure the integrity of our platform.
+            </p>
+
+            <h3>Pinterest Integration</h3>
+            <p>
+                If you connect your Pinterest account, we access:
+            </p>
+            <ul>
+                <li>Your public boards and pins (read-only)</li>
+                <li>Images from pins you choose to analyze</li>
+            </ul>
+            <p>
+                We do not post to your Pinterest account or access private boards without your explicit selection.
+            </p>
+
+            <h3>Local Storage</h3>
+            <p>
+                The extension stores data locally on your device:
+            </p>
+            <ul>
+                <li>Recent analysis history</li>
+                <li>Your preferences and settings</li>
+                <li>Cached data for offline access</li>
+            </ul>
+            <p>
+                This data never leaves your device unless you explicitly sync it by signing in.
+            </p>
+
+            <h2>How We Use Your Information</h2>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Provide analysis of images you submit</li>
+                <li>Generate references and context</li>
+                <li>Create shareable cards</li>
+                <li>Sync your saved collections across devices (if signed in)</li>
+                <li>Improve and optimize the extension's performance</li>
+            </ul>
+
+            <h2>Third-Party Services</h2>
+            <p>Prometheus uses the following third-party services:</p>
+            <ul>
+                <li><strong>Google Firebase</strong> — for authentication, database, and cloud functions</li>
+                <li><strong>Pinterest API</strong> — for board integration (if connected)</li>
+            </ul>
+            <p>
+                These services have their own privacy policies. We encourage you to review them:
+            </p>
+            <ul>
+                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy
+                        Policy</a></li>
+                <li><a href="https://policy.pinterest.com/privacy-policy" target="_blank" rel="noopener">Pinterest
+                        Privacy Policy</a></li>
+            </ul>
+
+            <h2>Data Security</h2>
+            <p>
+                We implement appropriate security measures to protect your information:
+            </p>
+            <ul>
+                <li>All data transmission is encrypted using HTTPS</li>
+                <li>Authentication tokens are securely stored</li>
+                <li>We use Firebase's security infrastructure</li>
+                <li>We do not store raw images on our servers</li>
+            </ul>
+
+            <h2>Data Retention</h2>
+            <ul>
+                <li><strong>Analyzed images:</strong> Processed in real-time, not retained</li>
+                <li><strong>Analysis results:</strong> Retained while your account is active</li>
+                <li><strong>Account data:</strong> Retained until you delete your account</li>
+                <li><strong>Local data:</strong> Retained until you clear extension data or uninstall</li>
+            </ul>
+
+            <h2>Your Rights</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li><strong>Access</strong> your data through the extension interface</li>
+                <li><strong>Delete</strong> your saved analyses and collections</li>
+                <li><strong>Disconnect</strong> third-party integrations (Pinterest)</li>
+                <li><strong>Delete your account</strong> and all associated data</li>
+            </ul>
+
+            <h2>Children's Privacy</h2>
+            <p>
+                Prometheus is not intended for users under 13 years of age. We do not knowingly collect personal
+                information from children.
+            </p>
+
+            <h2>Changes to This Policy</h2>
+            <p>
+                We may update this Privacy Policy from time to time. We will notify you of any changes by updating the
+                "Last updated" date at the top of this page.
+            </p>
+
+            <h2>Contact Us</h2>
+            <p>
+                If you have questions about this Privacy Policy or your data, please contact us at <a
+                    href="mailto:prometheus.extension@gmail.com">prometheus.extension@gmail.com</a>.
+            </p>
+        </div>
+    </main>
+</body>
+
+</html>
