@@ -122,6 +122,8 @@
 .extension-preview {
     animation: fadeInUp 0.9s var(--ease-out) both;
     animation-delay: 0.3s;
+    position: relative;
+    z-index: 4;
 }
 
 /* Individual card animations are defined in the card-preview-mockup section below */
@@ -947,7 +949,7 @@ section {
 /* Extension Preview Mockup */
 .extension-preview {
     position: relative;
-    z-index: 2;
+    z-index: 4;
     width: 320px;
     background: var(--white);
     border-radius: var(--radius-xl);
