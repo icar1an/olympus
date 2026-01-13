@@ -1382,34 +1382,28 @@ section {
     color: var(--black);
 }
 
-/* Methods - Asymmetric Two Column */
+/* Methods - Centered Layout with Header */
 .editorial-methods {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: var(--space-3xl);
     max-width: 900px;
     margin: 0 auto var(--space-4xl);
-    align-items: start;
 }
 
-.methods-label {
-    position: sticky;
-    top: var(--space-xl);
-}
-
-.label-text {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--silver);
+.methods-header {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    letter-spacing: -0.02em;
 }
 
 .methods-list {
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .method-item {
@@ -1430,7 +1424,25 @@ section {
     font-size: 0.875rem;
     color: var(--silver);
     flex-shrink: 0;
-    padding-top: 4px;
+    padding-top: 8px;
+    min-width: 24px;
+}
+
+.method-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ivory);
+    border-radius: var(--radius-md);
+    color: var(--charcoal);
+}
+
+.method-icon svg {
+    width: 24px;
+    height: 24px;
 }
 
 .method-content {
