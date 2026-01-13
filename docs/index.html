@@ -56,9 +56,17 @@
         </div>
         <div class="hero-visual">
             <div class="preview-stack">
-                <!-- Shareable Card Preview (behind) -->
-                <div class="card-preview-mockup" onclick="openCardModal()">
-                    <img src="icons/shareable-card-preview.png" alt="Shareable Card Preview">
+                <!-- Shareable Card Previews (stacked behind) -->
+                <div class="card-preview-mockup card-1" onclick="openCardModal('angelcore')">
+                    <img src="icons/angelcore-card.jpg" alt="Angelcore Card Preview">
+                    <div class="card-click-hint">Click to view</div>
+                </div>
+                <div class="card-preview-mockup card-2" onclick="openCardModal('artful-minimalism')">
+                    <img src="icons/artful-minimalism-card.jpg" alt="Artful Minimalism Card Preview">
+                    <div class="card-click-hint">Click to view</div>
+                </div>
+                <div class="card-preview-mockup card-3" onclick="openCardModal('liquid-chrome')">
+                    <img src="icons/liquid-chrome-card.jpg" alt="Liquid Chrome Card Preview">
                     <div class="card-click-hint">Click to view</div>
                 </div>
                 <!-- Home View Preview -->
@@ -99,21 +107,23 @@
                             <span class="ext-section-link">View all →</span>
                         </div>
                         <div class="ext-recent-list">
-                            <div class="ext-recent-item" onclick="openCardModal()" style="cursor: pointer;">
+                            <div class="ext-recent-item" onclick="openCardModal('liquid-chrome')"
+                                style="cursor: pointer;">
                                 <img class="ext-recent-thumb" src="icons/liquid-chrome.png" alt="Liquid Chrome">
                                 <div class="ext-recent-info">
                                     <span class="ext-recent-name">Liquid Chrome</span>
                                     <span class="ext-recent-date">y3k</span>
                                 </div>
                             </div>
-                            <div class="ext-recent-item">
+                            <div class="ext-recent-item" onclick="openCardModal('artful-minimalism')"
+                                style="cursor: pointer;">
                                 <img class="ext-recent-thumb" src="icons/artful-minimalism.png" alt="Artful Minimalism">
                                 <div class="ext-recent-info">
                                     <span class="ext-recent-name">Artful Minimalism</span>
                                     <span class="ext-recent-date">abscence</span>
                                 </div>
                             </div>
-                            <div class="ext-recent-item">
+                            <div class="ext-recent-item" onclick="openCardModal('angelcore')" style="cursor: pointer;">
                                 <img class="ext-recent-thumb" src="icons/angelcore.png" alt="Angelcore">
                                 <div class="ext-recent-info">
                                     <span class="ext-recent-name">Angelcore</span>
@@ -225,8 +235,22 @@
     </div>
 
     <script>
-        function openCardModal() {
-            document.getElementById('cardModal').classList.add('active');
+        const cardImages = {
+            'liquid-chrome': 'icons/liquid-chrome-card.jpg',
+            'artful-minimalism': 'icons/artful-minimalism-card.jpg',
+            'angelcore': 'icons/angelcore-card.jpg'
+        };
+
+        function openCardModal(cardType) {
+            const modal = document.getElementById('cardModal');
+            const modalImg = modal.querySelector('.card-modal-content img');
+
+            if (cardType && cardImages[cardType]) {
+                modalImg.src = cardImages[cardType];
+                modalImg.alt = cardType.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') + ' Card';
+            }
+
+            modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
         function closeCardModal() {

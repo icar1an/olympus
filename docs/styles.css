@@ -124,10 +124,7 @@
     animation-delay: 0.3s;
 }
 
-.card-preview-mockup {
-    animation: slideInFromRight 0.9s var(--ease-out) both;
-    animation-delay: 0.5s;
-}
+/* Individual card animations are defined in the card-preview-mockup section below */
 
 /* Reset & Base */
 *,
@@ -781,11 +778,82 @@ section {
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(-50%) translateX(60px) rotate(6deg);
     z-index: 1;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
     transition: transform var(--transition-base) var(--ease-out);
     cursor: pointer;
+}
+
+/* Individual card positions - fanned stack effect */
+.card-preview-mockup.card-1 {
+    transform: translateY(-80%) translateX(60px) rotate(-12deg);
+    z-index: 1;
+    animation: slideInCard1 0.9s var(--ease-out) both;
+    animation-delay: 0.6s;
+}
+
+.card-preview-mockup.card-2 {
+    transform: translateY(-50%) translateX(120px) rotate(0deg);
+    z-index: 2;
+    animation: slideInCard2 0.9s var(--ease-out) both;
+    animation-delay: 0.5s;
+}
+
+.card-preview-mockup.card-3 {
+    transform: translateY(-20%) translateX(60px) rotate(12deg);
+    z-index: 3;
+    animation: slideInCard3 0.9s var(--ease-out) both;
+    animation-delay: 0.4s;
+}
+
+/* Entrance animations for each card */
+@keyframes slideInCard1 {
+    from {
+        opacity: 0;
+        transform: translateY(-80%) translateX(150px) rotate(-12deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-80%) translateX(60px) rotate(-12deg);
+    }
+}
+
+@keyframes slideInCard2 {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(200px) rotate(0deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(120px) rotate(0deg);
+    }
+}
+
+@keyframes slideInCard3 {
+    from {
+        opacity: 0;
+        transform: translateY(-20%) translateX(150px) rotate(12deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-20%) translateX(60px) rotate(12deg);
+    }
+}
+
+/* Hover effects for each card */
+.card-preview-mockup.card-1:hover {
+    transform: translateY(-80%) translateX(55px) rotate(-15deg) scale(1.05);
+}
+
+.card-preview-mockup.card-2:hover {
+    transform: translateY(-50%) translateX(130px) rotate(2deg) scale(1.05);
+}
+
+.card-preview-mockup.card-3:hover {
+    transform: translateY(-20%) translateX(55px) rotate(15deg) scale(1.05);
 }
 
 .card-preview-mockup img {
@@ -813,10 +881,6 @@ section {
 
 .card-preview-mockup:hover .card-click-hint {
     opacity: 1;
-}
-
-.preview-stack:hover .card-preview-mockup {
-    transform: translateY(-50%) translateX(80px) rotate(8deg);
 }
 
 /* Card Lightbox Modal */
