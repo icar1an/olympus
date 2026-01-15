@@ -229,6 +229,34 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Mobile touch optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Disable hover effects on touch devices to prevent sticky states */
+    .cta-button:hover,
+    .demo-method-icon:hover,
+    .demo-product-card:hover,
+    .demo-step:hover,
+    .ext-action-card:hover,
+    .ext-recent-item:hover,
+    .ext-nav-item:hover {
+        transform: none;
+        box-shadow: inherit;
+    }
+
+    /* Better tap highlighting */
+    a, button, .ext-action-card, .demo-method-icon, .demo-product-card {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Prevent text selection on interactive elements */
+    .cta-button, .waitlist-btn, .ext-action-card, .demo-method-icon {
+        -webkit-user-select: none;
+        user-select: none;
+    }
 }
 
 body {
@@ -616,6 +644,60 @@ section {
         flex-direction: column;
         gap: var(--space-md);
         text-align: center;
+    }
+
+    /* Better touch targets for footer links */
+    .footer-nav-links a {
+        display: inline-block;
+        padding: var(--space-xs) 0;
+        min-height: 44px;
+        line-height: 36px;
+    }
+
+    .footer-legal a {
+        padding: var(--space-xs) var(--space-sm);
+        min-height: 44px;
+        line-height: 36px;
+    }
+
+    .footer-contact {
+        display: inline-block;
+        padding: var(--space-xs) 0;
+        min-height: 44px;
+        line-height: 36px;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-editorial {
+        padding: var(--space-2xl) var(--space-md) var(--space-md);
+    }
+
+    .footer-headline {
+        font-size: 2rem;
+    }
+
+    .footer-statement {
+        margin-bottom: var(--space-2xl);
+        padding-bottom: var(--space-2xl);
+    }
+
+    .footer-grid {
+        gap: var(--space-lg);
+        margin-bottom: var(--space-2xl);
+    }
+
+    .footer-column-label {
+        font-size: 0.625rem;
+    }
+
+    .footer-nav-links a {
+        font-size: 1rem;
+    }
+
+    .footer-contact {
+        font-size: 0.9375rem;
     }
 }
 
@@ -1353,8 +1435,13 @@ section {
 }
 
 @media (max-width: 480px) {
+    .editorial {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
     .statement-text {
-        font-size: 1.375rem;
+        font-size: 1.25rem;
+        line-height: 1.6;
     }
 
     .discover-title {
@@ -1363,6 +1450,177 @@ section {
 
     .discover-desc {
         font-size: 0.875rem;
+    }
+}
+
+
+/* ========================================
+   Waitlist Section
+   ======================================== */
+
+.waitlist-section {
+    padding: var(--space-4xl) var(--space-lg);
+    background: var(--ivory);
+}
+
+.waitlist-container {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.waitlist-label {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--stone);
+    margin-bottom: var(--space-md);
+}
+
+.waitlist-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+}
+
+.waitlist-desc {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: var(--space-xl);
+}
+
+.waitlist-form {
+    width: 100%;
+}
+
+.waitlist-input-group {
+    display: flex;
+    gap: var(--space-sm);
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.waitlist-input {
+    flex: 1;
+    padding: 14px 20px;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--black);
+    background: var(--white);
+    border: 1px solid var(--ash);
+    border-radius: 8px;
+    transition: all var(--transition-fast);
+}
+
+.waitlist-input::placeholder {
+    color: var(--silver);
+}
+
+.waitlist-input:focus {
+    outline: none;
+    border-color: var(--charcoal);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.waitlist-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--white);
+    background: var(--black);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.waitlist-btn:hover {
+    background: var(--charcoal);
+    transform: translateY(-1px);
+}
+
+.waitlist-btn:active {
+    transform: translateY(0);
+}
+
+.waitlist-btn-arrow {
+    transition: transform var(--transition-fast);
+}
+
+.waitlist-btn:hover .waitlist-btn-arrow {
+    transform: translateX(3px);
+}
+
+.waitlist-message {
+    margin-top: var(--space-md);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--stone);
+    min-height: 1.5em;
+}
+
+.waitlist-message.success {
+    color: #2e7d32;
+}
+
+.waitlist-message.error {
+    color: #c62828;
+}
+
+/* Waitlist Responsive */
+@media (max-width: 768px) {
+    .waitlist-section {
+        padding: var(--space-3xl) var(--space-md);
+    }
+
+    .waitlist-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .waitlist-section {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    .waitlist-title {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    .waitlist-desc {
+        font-size: 0.9375rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .waitlist-input-group {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    .waitlist-input {
+        padding: 16px 18px;
+        font-size: 1rem;
+        min-height: 52px;
+    }
+
+    .waitlist-btn {
+        justify-content: center;
+        min-height: 52px;
+        padding: 16px 24px;
+        font-size: 1rem;
     }
 }
 
@@ -1486,6 +1744,8 @@ section {
     .cta-button {
         width: 100%;
         justify-content: center;
+        min-height: 52px;
+        font-size: 1.0625rem;
     }
 
     .analysis-item {
@@ -1495,6 +1755,32 @@ section {
 
     .analysis-icon {
         margin: 0 auto;
+    }
+
+    /* Better mobile hero spacing */
+    .hero.hero-fullpage {
+        min-height: auto;
+        padding-top: var(--space-xl);
+        padding-bottom: var(--space-2xl);
+    }
+
+    .hero-content {
+        gap: var(--space-md);
+    }
+
+    .dictionary-entry {
+        margin-bottom: var(--space-lg);
+    }
+
+    /* Improve extension preview on small screens */
+    .extension-preview {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .preview-stack {
+        min-height: auto;
+        padding: var(--space-md) 0;
     }
 }
 
@@ -1734,7 +2020,8 @@ section {
 .demo-product-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: var(--ivory);
 }
 
 .demo-product-info {
@@ -1831,15 +2118,59 @@ a.demo-product-card {
 }
 
 @media (max-width: 480px) {
+    /* Horizontal scrolling product grid - show all cards */
     .demo-product-grid {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: var(--space-sm);
+        padding-bottom: var(--space-sm);
+        margin: 0 calc(-1 * var(--space-md));
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+
+    .demo-product-card {
+        flex: 0 0 140px;
+        scroll-snap-align: start;
     }
 
     .demo-product-card:nth-child(3) {
+        display: block;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .demo-product-grid::-webkit-scrollbar {
         display: none;
     }
 
+    .demo-product-grid {
+        scrollbar-width: none;
+    }
+
+    /* Larger touch targets for method icons */
     .demo-input-methods {
         justify-content: center;
+        gap: var(--space-sm);
+    }
+
+    .demo-method-icon {
+        width: 52px;
+        height: 52px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .demo-step {
+        padding: var(--space-lg);
+    }
+
+    .demo-step-title {
+        font-size: 1.25rem;
+    }
+
+    .demo-step-desc {
+        font-size: 0.875rem;
     }
 }

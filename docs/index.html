@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <a href="#" class="cta-button" id="install-btn">
+            <a href="https://chromewebstore.google.com/detail/prometheus/bbgigkgmodajaobdfalekpaolpolebnm" class="cta-button" id="install-btn">
                 <svg class="chrome-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" />
                     <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" />
@@ -264,6 +264,26 @@
         </div>
     </section>
 
+    <!-- Community Section -->
+    <section class="waitlist-section" id="community">
+        <div class="waitlist-container animate-on-scroll">
+            <span class="waitlist-label">Community</span>
+            <h2 class="waitlist-title">Join the Prometheus Community</h2>
+            <p class="waitlist-desc">Get early access to new features and help decide what we build next.</p>
+            <form class="waitlist-form" id="waitlistForm">
+                <div class="waitlist-input-group">
+                    <input type="email" class="waitlist-input" id="waitlistEmail" placeholder="Enter your email" required>
+                    <button type="submit" class="waitlist-btn">
+                        <span class="waitlist-btn-text">Join</span>
+                        <svg class="waitlist-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="waitlist-message" id="waitlistMessage"></p>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer-editorial">
@@ -418,6 +438,50 @@
 
         if (typewriterElement) {
             typewriterObserver.observe(typewriterElement.closest('.demo-step'));
+        }
+
+        // Waitlist form handler
+        const waitlistForm = document.getElementById('waitlistForm');
+        const waitlistMessage = document.getElementById('waitlistMessage');
+        const WAITLIST_API = 'https://us-central1-prometheus-ext-2026.cloudfunctions.net/waitlist_signup';
+
+        if (waitlistForm) {
+            waitlistForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('waitlistEmail').value;
+                const btn = waitlistForm.querySelector('.waitlist-btn');
+                const btnText = btn.querySelector('.waitlist-btn-text');
+
+                // Show loading state
+                btnText.textContent = 'Joining...';
+                btn.disabled = true;
+
+                try {
+                    const response = await fetch(WAITLIST_API, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok && data.success) {
+                        waitlistMessage.textContent = data.message;
+                        waitlistMessage.className = 'waitlist-message success';
+                        if (!data.alreadyExists) {
+                            waitlistForm.reset();
+                        }
+                    } else {
+                        throw new Error(data.error || 'Failed to join waitlist');
+                    }
+                } catch (error) {
+                    waitlistMessage.textContent = error.message || 'Something went wrong. Please try again.';
+                    waitlistMessage.className = 'waitlist-message error';
+                } finally {
+                    btnText.textContent = 'Join';
+                    btn.disabled = false;
+                }
+            });
         }
     </script>
 </body>
