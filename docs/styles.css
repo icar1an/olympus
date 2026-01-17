@@ -765,78 +765,27 @@ section {
     right: 0;
     top: 50%;
     z-index: 1;
-    opacity: 0;
     cursor: pointer;
-    will-change: transform, opacity;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
 }
 
 /* Individual card positions - fanned stack effect */
 .card-preview-mockup.card-1 {
     transform: translateY(-80%) translateX(60px) rotate(-12deg);
     z-index: 1;
-    animation: slideInCard1 0.9s var(--ease-out) both;
-    animation-delay: 0.6s;
 }
 
 .card-preview-mockup.card-2 {
     transform: translateY(-50%) translateX(120px) rotate(0deg);
     z-index: 2;
-    animation: slideInCard2 0.9s var(--ease-out) both;
-    animation-delay: 0.5s;
 }
 
 .card-preview-mockup.card-3 {
     transform: translateY(-20%) translateX(60px) rotate(12deg);
     z-index: 3;
-    animation: slideInCard3 0.9s var(--ease-out) both;
-    animation-delay: 0.4s;
-}
-
-/* Entrance animations for each card */
-@keyframes slideInCard1 {
-    from {
-        opacity: 0;
-        transform: translateZ(0) translateY(-80%) translateX(150px) rotate(-12deg);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateZ(0) translateY(-80%) translateX(60px) rotate(-12deg);
-    }
-}
-
-@keyframes slideInCard2 {
-    from {
-        opacity: 0;
-        transform: translateZ(0) translateY(-50%) translateX(200px) rotate(0deg);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateZ(0) translateY(-50%) translateX(120px) rotate(0deg);
-    }
-}
-
-@keyframes slideInCard3 {
-    from {
-        opacity: 0;
-        transform: translateZ(0) translateY(-20%) translateX(150px) rotate(12deg);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateZ(0) translateY(-20%) translateX(60px) rotate(12deg);
-    }
 }
 
 /* Hover effects for each card */
-.card-preview-mockup.card-1:hover,
-.card-preview-mockup.card-2:hover,
-.card-preview-mockup.card-3:hover {
+.card-preview-mockup {
     transition: transform 0.3s ease-out;
 }
 
