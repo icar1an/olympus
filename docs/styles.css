@@ -766,12 +766,12 @@ section {
     top: 50%;
     z-index: 1;
     opacity: 0;
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
-    transition: transform var(--transition-base) var(--ease-out);
     cursor: pointer;
     will-change: transform, opacity;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 /* Individual card positions - fanned stack effect */
@@ -800,40 +800,46 @@ section {
 @keyframes slideInCard1 {
     from {
         opacity: 0;
-        transform: translateY(-80%) translateX(150px) rotate(-12deg);
+        transform: translateZ(0) translateY(-80%) translateX(150px) rotate(-12deg);
     }
 
     to {
         opacity: 1;
-        transform: translateY(-80%) translateX(60px) rotate(-12deg);
+        transform: translateZ(0) translateY(-80%) translateX(60px) rotate(-12deg);
     }
 }
 
 @keyframes slideInCard2 {
     from {
         opacity: 0;
-        transform: translateY(-50%) translateX(200px) rotate(0deg);
+        transform: translateZ(0) translateY(-50%) translateX(200px) rotate(0deg);
     }
 
     to {
         opacity: 1;
-        transform: translateY(-50%) translateX(120px) rotate(0deg);
+        transform: translateZ(0) translateY(-50%) translateX(120px) rotate(0deg);
     }
 }
 
 @keyframes slideInCard3 {
     from {
         opacity: 0;
-        transform: translateY(-20%) translateX(150px) rotate(12deg);
+        transform: translateZ(0) translateY(-20%) translateX(150px) rotate(12deg);
     }
 
     to {
         opacity: 1;
-        transform: translateY(-20%) translateX(60px) rotate(12deg);
+        transform: translateZ(0) translateY(-20%) translateX(60px) rotate(12deg);
     }
 }
 
 /* Hover effects for each card */
+.card-preview-mockup.card-1:hover,
+.card-preview-mockup.card-2:hover,
+.card-preview-mockup.card-3:hover {
+    transition: transform 0.3s ease-out;
+}
+
 .card-preview-mockup.card-1:hover {
     transform: translateY(-80%) translateX(55px) rotate(-15deg) scale(1.05);
 }
@@ -850,6 +856,7 @@ section {
     width: 220px;
     height: auto;
     border-radius: var(--radius-lg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
 }
