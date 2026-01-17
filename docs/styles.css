@@ -768,6 +768,9 @@ section {
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
     transition: transform var(--transition-base) var(--ease-out);
     cursor: pointer;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 /* Individual card positions - fanned stack effect */
@@ -846,6 +849,8 @@ section {
     width: 220px;
     height: auto;
     border-radius: var(--radius-lg);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .card-click-hint {
