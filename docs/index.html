@@ -57,16 +57,16 @@
         <div class="hero-visual">
             <div class="preview-stack">
                 <!-- Shareable Card Previews (stacked behind) -->
-                <div class="card-preview-mockup card-1" onclick="openCardModal('angelcore')">
-                    <img src="icons/angelcore-card.jpg" alt="Angelcore Card Preview">
+                <div class="card-preview-mockup card-1" onclick="openCardModal('fallen-angel')">
+                    <img src="icons/fallen-angel-card.png" alt="Fallen Angel Card Preview">
                     <div class="card-click-hint">Click to view</div>
                 </div>
-                <div class="card-preview-mockup card-2" onclick="openCardModal('artful-minimalism')">
-                    <img src="icons/artful-minimalism-card.jpg" alt="Artful Minimalism Card Preview">
+                <div class="card-preview-mockup card-2" onclick="openCardModal('sculptural-minimalism')">
+                    <img src="icons/sculptural-minimalism-card.png" alt="Sculptural Minimalism Card Preview">
                     <div class="card-click-hint">Click to view</div>
                 </div>
                 <div class="card-preview-mockup card-3" onclick="openCardModal('liquid-chrome')">
-                    <img src="icons/liquid-chrome-card.jpg" alt="Liquid Chrome Card Preview">
+                    <img src="icons/liquid-chrome-card.png" alt="Liquid Chrome Card Preview">
                     <div class="card-click-hint">Click to view</div>
                 </div>
                 <!-- Home View Preview -->
@@ -115,19 +115,19 @@
                                     <span class="ext-recent-date">y3k</span>
                                 </div>
                             </div>
-                            <div class="ext-recent-item" onclick="openCardModal('artful-minimalism')"
+                            <div class="ext-recent-item" onclick="openCardModal('sculptural-minimalism')"
                                 style="cursor: pointer;">
-                                <img class="ext-recent-thumb" src="icons/artful-minimalism.png" alt="Artful Minimalism">
+                                <img class="ext-recent-thumb" src="icons/sculptural-minimalism.png" alt="Sculptural Minimalism">
                                 <div class="ext-recent-info">
-                                    <span class="ext-recent-name">Artful Minimalism</span>
-                                    <span class="ext-recent-date">abscence</span>
+                                    <span class="ext-recent-name">Sculptural Minimalism</span>
+                                    <span class="ext-recent-date">minimalist</span>
                                 </div>
                             </div>
-                            <div class="ext-recent-item" onclick="openCardModal('angelcore')" style="cursor: pointer;">
-                                <img class="ext-recent-thumb" src="icons/angelcore.png" alt="Angelcore">
+                            <div class="ext-recent-item" onclick="openCardModal('fallen-angel')" style="cursor: pointer;">
+                                <img class="ext-recent-thumb" src="icons/fallen-angel.png" alt="Fallen Angel">
                                 <div class="ext-recent-info">
-                                    <span class="ext-recent-name">Angelcore</span>
-                                    <span class="ext-recent-date">angelcore</span>
+                                    <span class="ext-recent-name">Fallen Angel</span>
+                                    <span class="ext-recent-date">ethereal</span>
                                 </div>
                             </div>
                         </div>
@@ -317,9 +317,9 @@
 
     <script>
         const cardImages = {
-            'liquid-chrome': 'icons/liquid-chrome-card.jpg',
-            'sculptural-minimalism': 'icons/sculptural-minimalism-card.jpg',
-            'fallen-angel': 'icons/fallen-angel-card.jpg'
+            'liquid-chrome': 'icons/liquid-chrome-card.png',
+            'sculptural-minimalism': 'icons/sculptural-minimalism-card.png',
+            'fallen-angel': 'icons/fallen-angel-card.png'
         };
 
         function openCardModal(cardType) {
@@ -372,7 +372,7 @@
         });
 
         // Typewriter effect for aesthetic names
-        const aestheticNames = ['Liquid Chrome', 'Artful Minimalism', 'Angelcore'];
+        const aestheticNames = ['Liquid Chrome', 'Sculptural Minimalism', 'Fallen Angel'];
         let currentAestheticIndex = 0;
         const typewriterElement = document.getElementById('typewriterAesthetic');
 
